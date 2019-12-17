@@ -4,6 +4,7 @@ import './App.css';
 import MovieList from './components/MovieList'
 import CustomerList from './components/CustomerList'
 import Search from './components/Search'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {
   BrowserRouter as Router,
@@ -42,7 +43,7 @@ render() {
           <Route path="/library">
             <MovieList />
           </Route>
-          <Route path="/Customers">``
+          <Route path="/Customers">
             <CustomerList />
           </Route>
           <Route path="/">
