@@ -12,7 +12,6 @@ const Movie = props => {
         <p>{props.release}</p>
         <img src={props.image} alt="" />
         <div>{props.overview}</div>
-        <button >Add to library</button>
       </div>
     );
   } else {
