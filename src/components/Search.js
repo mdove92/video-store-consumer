@@ -51,6 +51,7 @@ class Search extends Component{
                 title={movie.title}
                 release={movie.release_date}
                 overview={movie.overview}
+                is_not_in_library={true}
               /> 
             )
       
