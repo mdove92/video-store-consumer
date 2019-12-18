@@ -5,8 +5,17 @@ import PropTypes from 'prop-types';
 
 
 const Customer = (props) => {
+  console.log(props)
 return (
-  <h2> Customer </h2>
+
+  <section>
+<tr> 
+  <td> {props.name}</td>
+  <td> {props.id}</td>
+  <td> {props.accountCredit}</td>
+  <td> {props.moviesCheckedOutCount}</td>
+</tr>
+</section>
 )
 }
 export default Customer;
