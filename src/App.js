@@ -23,39 +23,45 @@ class App extends Component {
 
     }
   }
-  onSelectForCheckout = movie => {
+  onSelectMovieForCheckout = movie => {
     
     this.setState({
     selectedMovie: movie 
     })
-    // movie.preventDefault();
-
-    // axios
-    //   .get("http://localhost:3000/movies", movie)
-    //   .then(response => {
-    //     console.log(response.data);
-    //     this.setState({ movies: response.data });
-    //   });
-
-    // this.setState({
-    //   searchBar: ""
-    // });
+  };
+  onSelectCustomerForCheckout = customer => {
+    
+    console.log(customer)
+    this.setState({
+    selectedCustomer: customer
+    })
+    console.log(this.state.selectedCustomer)
   };
 render() {
   let selectedMovie = "" 
-  if(selectedMovie){
-selectedMovie = <Movie 
-id={this.state.selectedMovie.id}
-image={this.state.selectedMovie.image_url}
-title={this.state.selectedMovie.title}
-release={this.state.selectedMovie.release_date}
-overview={this.state.selectedMovie.overview}
+  if(this.state.selectedMovie){
+selectedMovie = <div> 
+  <h3> Selected Movie</h3>
+   <h4>{this.state.selectedMovie.title} </h4>
+   <img src={this.state.selectedMovie.image_url} alt="" />
 
-/> 
+
+</div>
+
+  }
+  let selectedCustomer = "" 
+  if(this.state.selectedCustomer){
+selectedCustomer = <div> 
+  <h3> Selected Customer</h3>
+   <h4>{this.state.selectedCustomer.name} </h4> 
+
+</div>
+
   }
   return (
     <div>
       <h2> {selectedMovie}</h2>
+      <h2>{selectedCustomer}</h2>
 
       <Router>
         <div>
@@ -83,21 +89,16 @@ overview={this.state.selectedMovie.overview}
             <Route
               path='/library'
               render={(props) => <MovieList {...props} 
-                onSelectForCheckoutCallback={this.onSelectForCheckout} />}
+                onSelectMovieForCheckoutCallback={this.onSelectMovieForCheckout} />}
             />
-            <Route path="/Customers">
-              <CustomerList />
-            </Route>
-            {/* <Route path="/">
-              <MovieList
-                onSelectForCheckoutCallback={this.onSelectForCheckout}
-              />
-            </Route> */}
-            <Route
-              path='/'
+            <Route path="/Customers"
+            render={(props) => <CustomerList {...props} 
+            onSelectCustomerForCheckoutCallback={this.onSelectCustomerForCheckout}/>}
+          />
+            <Route path='/'
               render={(props) => <MovieList {...props} 
-                onSelectForCheckoutCallback={this.onSelectForCheckout} />}
-            />
+                onSelectMovieForCheckoutCallback={this.onSelectMovieForCheckout} />}
+                /> 
           </Switch>
         </div>
       </Router>

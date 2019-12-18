@@ -22,11 +22,15 @@ class CustomerList extends Component {
             this.setState({ error: error.message });
           });
       }
+      onSelectForCheckoutHandler = customer => {
+        this.props.onSelectCustomerForCheckoutCallback(customer)
+      };
     
     render() {
       const customerInfo = this.state.customers.map((customer) => {
         return (
           <Customer
+          key={customer.id}
           accountCredit= {customer.account_credit}
           address= {customer.address}
           city= {customer.city}
@@ -36,7 +40,9 @@ class CustomerList extends Component {
           phone={customer.phone}
           postalCode= {customer.postal_code}
           registeredAt= {customer.registered_at}
-          state= {customer.state}/> 
+          state= {customer.state}
+          selectForCheckoutCallback={() => this.onSelectForCheckoutHandler(customer)}/>
+
       );
     
       }) 
