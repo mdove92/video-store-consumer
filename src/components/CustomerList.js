@@ -45,7 +45,7 @@ class CustomerList extends Component {
             <table className="table table-striped">
               <thead className="table-header-row">
                 <tr>
-                <th>Customer</th>
+                <th>Select Customer</th>
                 <th>Id</th>
                 <th>Name</th>
                 <th>Account Credit</th>

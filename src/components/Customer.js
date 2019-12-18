@@ -10,8 +10,9 @@ return (
 
   <section>
 <tr> 
-  <td> {props.name}</td>
+  <td> <button value={props.id} name={props.id} classname="btn btn-info">Select</button></td>
   <td> {props.id}</td>
+  <td> {props.name}</td>
   <td> {props.accountCredit}</td>
   <td> {props.moviesCheckedOutCount}</td>
 </tr>

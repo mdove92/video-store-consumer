@@ -24,14 +24,17 @@ class MovieList extends Component {
       });
   }
   onSelectForCheckoutHandler = movie => {
+    console.log(this.props)
+    this.props.onSelectForCheckoutCallback(movie)
+    
     // movie.preventDefault();
 
-    axios
-      .get("http://localhost:3000/movies", movie)
-      .then(response => {
-        console.log(response.data);
-        this.setState({ movies: response.data });
-      });
+    // axios
+    //   .get("http://localhost:3000/movies", movie)
+    //   .then(response => {
+    //     console.log(response.data);
+    //     this.setState({ movies: response.data });
+    //   });
 
     // this.setState({
     //   searchBar: ""
