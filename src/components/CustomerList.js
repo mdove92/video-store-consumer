@@ -41,10 +41,6 @@ class CustomerList extends Component {
     
       }) 
         return (
-          // <div>
-          //    <h2> Customers List </h2>
-          //   {customerInfo}
-          //   </div>
           <section>
             <table className="table table-striped">
               <thead className="table-header-row">
