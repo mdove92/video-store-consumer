@@ -23,17 +23,36 @@ class MovieList extends Component {
         this.setState({ error: error.message });
       });
   }
+  onSelectForCheckoutHandler = movie => {
+    // movie.preventDefault();
 
+    axios
+      .get("http://localhost:3000/movies", movie)
+      .then(response => {
+        console.log(response.data);
+        this.setState({ movies: response.data });
+      });
+
+    // this.setState({
+    //   searchBar: ""
+    // });
+  };
   render() {
     const moviesInfo = this.state.movies.map((movie) => {
       return(
+        <section>
         <Movie 
           id={movie.id}
           image={movie.image_url}
           title={movie.title}
           release={movie.release_date}
           overview={movie.overview}
+          
         /> 
+        <button onClick={() => {this.onSelectForCheckoutHandler(movie)}}>
+            Select Movie for Checkout
+          </button>
+          </section>
       )
 
     })
