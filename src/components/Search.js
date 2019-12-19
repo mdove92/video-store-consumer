@@ -26,14 +26,12 @@ class Search extends Component {
     axios
       .post("http://localhost:3000/movies", movie)
       .then(res => {
-        this.setState({movies: []})
+        this.setState({ movies: [] });
       })
       .catch(error => {
         return <h2>"You are a BAD DOG"</h2>;
       });
   };
-
-
 
   onSubmitHandler = event => {
     event.preventDefault();
@@ -53,21 +51,29 @@ class Search extends Component {
   render() {
     console.log(this.state.searchBar);
     const foundMovies = this.state.movies.map(movie => {
-      return (
-        <section>
-          <Movie
-            id={movie.id}
-            image={movie.image_url}
-            title={movie.title}
-            release={movie.release_date}
-            overview={movie.overview}
-            is_not_in_library={true}
-          />
-          <button onClick={() => {this.onAddToLibraryHandler(movie)}}>
-            Add to library
-          </button>
-        </section>
-      );
+      if (movie != null) {
+        return (
+          <section>
+            <Movie
+              id={movie.id}
+              image={movie.image_url}
+              title={movie.title}
+              release={movie.release_date}
+              overview={movie.overview}
+              is_not_in_library={true}
+            />
+            <button
+              onClick={() => {
+                this.onAddToLibraryHandler(movie);
+              }}
+            >
+              Add to library
+            </button>
+          </section>
+        );
+      } else {
+        return; // if a null entry is returned, don't return anything
+      }
     });
     return (
       <section>

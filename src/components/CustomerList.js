@@ -24,6 +24,7 @@ class CustomerList extends Component {
       }
       onSelectForCheckoutHandler = customer => {
         this.props.onSelectCustomerForCheckoutCallback(customer)
+        window.scrollTo(0, 0) // Scroll to top of screen when the button has been pressed
       };
     
     render() {

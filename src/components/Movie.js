@@ -7,19 +7,19 @@ const Movie = props => {
      add the movie to the library*/
   if (props.is_not_in_library) {
     return (
-      <div>
+      <div className="Movie">
         <h2>{props.title}</h2>
         <p>{props.release}</p>
-        <img src={props.image} alt="" />
+        <img src={props.image} alt={props.title} />
         <div>{props.overview}</div>
       </div>
     );
   } else {
     return (
-      <div>
+      <div className="Movie">
         <h2>{props.title}</h2>
         <p>{props.release}</p>
-        <img src={props.image} alt="" />
+        <img src={props.image} alt={props.title} />
         <div>{props.overview}</div>
       </div>
     );

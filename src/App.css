@@ -15,11 +15,21 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 2.5em;
+  color: #666;
+}
+
+.App-title:hover {
+  text-decoration: none;
+  color: #888;
 }
 
 .App-intro {
   font-size: large;
+}
+
+.PendingRental{
+  border: 5px aliceblue solid;
 }
 
 @keyframes App-logo-spin {
