@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import MovieList from "./components/MovieList";
 import CustomerList from "./components/CustomerList";
@@ -67,10 +66,11 @@ class App extends Component {
     this.setState(updatedState);
   };
   checkout = event => {
-    const dueDate = new Date();
+    let dueDate = new Date();
+    dueDate.setDate(dueDate.getDate() + 7);
     axios
       .post(
-        `http://localhost:3000/rentals/${this.state.selectedMovie.title}/check-out`,
+        "http://localhost:3000/rentals/"+this.state.selectedMovie.title+"/check-out",
         { customer_id: this.state.selectedCustomer.id, due_date: dueDate }
       )
       .then(res => {
@@ -82,7 +82,7 @@ class App extends Component {
       })
       .catch(error => {
         this.setState({
-          checkoutMessage: `movie checkout was unsucessful`
+          checkoutMessage: `Movie Checkout was Unsucessful`
         });
         console.log(error);
       });
@@ -92,8 +92,8 @@ class App extends Component {
     if (this.state.selectedMovie) {
       selectedMovie = (
         <div>
-          <h3> Selected Movie</h3>
-          <h4>{this.state.selectedMovie.title} </h4>
+          <h4> Selected Movie: {this.state.selectedMovie.title}</h4>
+          
         </div>
       );
     }
@@ -101,8 +101,7 @@ class App extends Component {
     if (this.state.selectedCustomer) {
       selectedCustomer = (
         <div>
-          <h3> Selected Customer</h3>
-          <h4>{this.state.selectedCustomer.name} </h4>
+          <h4>Selected Customer: {this.state.selectedCustomer.name} </h4>
         </div>
       );
     }
@@ -125,7 +124,7 @@ class App extends Component {
             <div>
               <Navbar bg="light" expand="lg">
                 <Navbar.Brand bsPrefix="App-title" href="#home">
-                  Video Store
+                 Amal and Mac Film Enthusiast's Club
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -140,7 +139,7 @@ class App extends Component {
                       Library
                     </Nav.Link>
                     <Nav.Link as={Link} to="/customers">
-                      Customers
+                      Members
                     </Nav.Link>
                   </Nav>
                   {/* <form
