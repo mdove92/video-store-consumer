@@ -32,7 +32,7 @@ class MovieList extends Component {
     const moviesInfo = this.state.movies.map(movie => {
       if (movie.inventory == 0) {
         return (
-          <section>
+          <section className="card p-2 flex-fill bd-highlight  w-50">
             <Movie
               id={movie.id}
               image={movie.image_url}
@@ -45,7 +45,7 @@ class MovieList extends Component {
         );
       } else {
         return (
-          <section>
+          <section className="card p-2 flex-fill bd-highlight  w-50">
             <Movie 
               id={movie.id}
               image={movie.image_url}
@@ -56,7 +56,7 @@ class MovieList extends Component {
             <button
               onClick={() => {
                 this.onSelectForCheckoutHandler(movie);
-              }}
+              }} className="btn btn-info"
             >
               Select Movie for Checkout
             </button>
@@ -68,7 +68,7 @@ class MovieList extends Component {
     return (
       <div>
         <h2> Rental Library </h2>
-        <section className = "app-card-list">
+        <section className = "d-flex p-2 bd-highlight flex-wrap">
         {moviesInfo}
         </section>
       </div>

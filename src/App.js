@@ -91,8 +91,10 @@ class App extends Component {
     let selectedMovie = "";
     if (this.state.selectedMovie) {
       selectedMovie = (
-        <div>
-          <h4> Selected Movie: {this.state.selectedMovie.title}</h4>
+        <div className="movie-container">
+          <img src={this.state.selectedMovie.image_url} alt={this.state.selectedMovie.title} className="movie-content"/>
+          <p className="checkout-text"> {this.state.selectedMovie.title}</p>
+
           
         </div>
       );
@@ -101,14 +103,14 @@ class App extends Component {
     if (this.state.selectedCustomer) {
       selectedCustomer = (
         <div>
-          <h4>Selected Customer: {this.state.selectedCustomer.name} </h4>
+          <p className="checkout-text"> Customer: {this.state.selectedCustomer.name} </p>
         </div>
       );
     }
     let checkoutButton = "";
     if (this.state.selectedCustomer && this.state.selectedMovie) {
       checkoutButton = (
-        <button onClick={this.checkout}>
+        <button onClick={this.checkout} className="btn btn-info checkout-button">
           Checkout {this.state.selectedMovie.title} for{" "}
           {this.state.selectedCustomer.name}
         </button>
@@ -159,11 +161,23 @@ class App extends Component {
                   </form> */}
                 </Navbar.Collapse>
               </Navbar>
-              <section>
+              <section className="container">
+                <div className="row">
+              
                 <h2>{selectedMovie}</h2>
-                <h2>{selectedCustomer}</h2>
-                <p>{checkoutButton}</p>
-                <p>{this.state.checkoutMessage}</p>
+             <div className="checkout-info"> 
+             <h2>{selectedCustomer}</h2>
+             <p>{checkoutButton}</p>
+             </div>
+                
+               
+
+
+                <p>{this.state.checkoutMessage}</p> 
+
+
+                </div>
+               
               </section>
               <div className="App">
                 {/* <nav>

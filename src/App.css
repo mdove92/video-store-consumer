@@ -36,3 +36,20 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.movie-content {
+  height: 20%;
+  width: 20%;
+
+}
+
+.checkout-text {
+  font-size:.5em ;
+}
+
+.checkout-button{
+
+ 
+
+
+}
