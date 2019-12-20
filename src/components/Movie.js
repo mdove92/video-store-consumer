@@ -10,7 +10,7 @@ const Movie = props => {
      
       <section className="movie-card--header">
         <h2>{props.title}</h2>
-        <p>{props.release}</p>
+        <p>Release year: {props.release.split('-')[0]}</p>
         <img src={props.image} alt={props.title} />
         <div>{props.overview}</div>
       </section>
@@ -22,7 +22,7 @@ const Movie = props => {
     
       <section className="movie-card--header">
         <h2>{props.title}</h2>
-        <p>{props.release}</p>
+        <p>Release year: {props.release.split('-')[0]}</p>
         <img src={props.image} alt={props.title} />
         <div>{props.overview}</div>
       </section>

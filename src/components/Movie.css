@@ -23,5 +23,48 @@
 }
 
 .btn {
-  margin: 5px;
+    margin: 5px;
+}
+
+.btn-info{
+    color: gold !important;
+    background-color: #e42045 !important;
+    border-color: #e42045 !important;
+}
+
+.btn-info:hover{
+    background-color: #d31c3e !important;
+    border-color: #d31c3e !important;
+}
+
+.btn-movie{
+    position: absolute;
+    bottom: 1em;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%
+}
+
+.card {
+    height: 41em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 5px solid #212529 !important;
+    border-radius: .25rem;
+    color: gold  !important;
+    background: #311f39  !important;
+}
+
+.movieCheckedOut 
+{
+    position: absolute;
+    bottom: 1em;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%
 }

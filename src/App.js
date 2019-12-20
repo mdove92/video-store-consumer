@@ -70,12 +70,14 @@ class App extends Component {
     dueDate.setDate(dueDate.getDate() + 7);
     axios
       .post(
-        "http://localhost:3000/rentals/"+this.state.selectedMovie.title+"/check-out",
+        "http://localhost:3000/rentals/" +
+          this.state.selectedMovie.title +
+          "/check-out",
         { customer_id: this.state.selectedCustomer.id, due_date: dueDate }
       )
       .then(res => {
         this.setState({
-          checkoutMessage: `${this.state.selectedMovie.title} is successfully checked out by ${this.state.selectedCustomer.name}`,
+          checkoutMessage: `${this.state.selectedMovie.title} has been successfully checked out to ${this.state.selectedCustomer.name}`,
           selectedCustomer: null,
           selectedMovie: null // Set the selected customer and movie to null when the rental is completed
         });
@@ -92,10 +94,12 @@ class App extends Component {
     if (this.state.selectedMovie) {
       selectedMovie = (
         <div>
-          <img src={this.state.selectedMovie.image_url} alt={this.state.selectedMovie.title} className="movie-img"/>
-          <p className="checkout-text"> {this.state.selectedMovie.title}</p>
-
-          
+          <img
+            src={this.state.selectedMovie.image_url}
+            alt={this.state.selectedMovie.title}
+            className="movie-img"
+          />
+          <p className="checkout-text">Selected movie: {this.state.selectedMovie.title}</p>
         </div>
       );
     }
@@ -103,7 +107,10 @@ class App extends Component {
     if (this.state.selectedCustomer) {
       selectedCustomer = (
         <div>
-          <p className="checkout-text"> Customer: {this.state.selectedCustomer.name} </p>
+          <p className="checkout-text">
+            {" "}
+            Customer: {this.state.selectedCustomer.name}{" "}
+          </p>
         </div>
       );
     }
@@ -126,21 +133,21 @@ class App extends Component {
             <div>
               <Navbar bg="light" expand="lg">
                 <Navbar.Brand bsPrefix="App-title" href="#home">
-                 Amal and Mac's Film Enthusiasts Club
+                  Amal and Mac's Film Enthusiasts Club
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="mr-auto">
-                    <Nav.Link as={Link} to="/">
+                    <Nav.Link as={Link} className="title" to="/">
                       Home
                     </Nav.Link>
-                    <Nav.Link as={Link} to="/search">
+                    <Nav.Link as={Link} className="title" to="/search">
                       Search
                     </Nav.Link>
-                    <Nav.Link as={Link} to="/library">
+                    <Nav.Link as={Link} className="title"  to="/library">
                       Film Library
                     </Nav.Link>
-                    <Nav.Link as={Link} to="/customers">
+                    <Nav.Link as={Link} className="title"  to="/customers">
                       Members
                     </Nav.Link>
                   </Nav>
@@ -163,22 +170,13 @@ class App extends Component {
               </Navbar>
               <section className="d-flex flex-row bd-highlight mb-3">
                 <div className="p-2 bd-highlight">
-              
-                <h2>{selectedMovie}</h2>
+                  <h2 className="selectedHeader">{selectedMovie}</h2>
+
+                  <h2 className="selectedHeader">{selectedCustomer}</h2>
+                  <p className="selectedHeader checkoutMessage">{this.state.checkoutMessage}</p>
+
+                  <p className="selectedHeader">{checkoutButton}</p>
                 </div>
-             <div className="p-2 bd-highlightcheckout-info"> 
-             <h2>{selectedCustomer}</h2>
-             <p>{checkoutButton}</p>
-            
-                
-               
-
-
-                <p>{this.state.checkoutMessage}</p> 
-
-
-                </div>
-               
               </section>
               <div className="App">
                 {/* <nav>

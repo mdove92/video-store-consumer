@@ -40,7 +40,7 @@ class MovieList extends Component {
               release={movie.release_date}
               overview={movie.overview}
             />
-            <section><b>Movie is checked out</b></section>
+            <section className="movieCheckedOut"><b>Movie is checked out</b></section>
           </section>
         );
       } else {
@@ -56,10 +56,11 @@ class MovieList extends Component {
             <button
               onClick={() => {
                 this.onSelectForCheckoutHandler(movie);
-              }} className="btn btn-info"
+              }} className="btn btn-info btn-movie"
             >
               Select Movie for Checkout
             </button>
+            
           </section>
         );
       }
