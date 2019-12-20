@@ -91,8 +91,8 @@ class App extends Component {
     let selectedMovie = "";
     if (this.state.selectedMovie) {
       selectedMovie = (
-        <div className="movie-container">
-          <img src={this.state.selectedMovie.image_url} alt={this.state.selectedMovie.title} className="movie-content"/>
+        <div>
+          <img src={this.state.selectedMovie.image_url} alt={this.state.selectedMovie.title} className="movie-img"/>
           <p className="checkout-text"> {this.state.selectedMovie.title}</p>
 
           
@@ -110,7 +110,7 @@ class App extends Component {
     let checkoutButton = "";
     if (this.state.selectedCustomer && this.state.selectedMovie) {
       checkoutButton = (
-        <button onClick={this.checkout} className="btn btn-info checkout-button">
+        <button onClick={this.checkout} className="btn btn-info">
           Checkout {this.state.selectedMovie.title} for{" "}
           {this.state.selectedCustomer.name}
         </button>
@@ -161,14 +161,15 @@ class App extends Component {
                   </form> */}
                 </Navbar.Collapse>
               </Navbar>
-              <section className="container">
-                <div className="row">
+              <section className="d-flex flex-row bd-highlight mb-3">
+                <div className="p-2 bd-highlight">
               
                 <h2>{selectedMovie}</h2>
-             <div className="checkout-info"> 
+                </div>
+             <div className="p-2 bd-highlightcheckout-info"> 
              <h2>{selectedCustomer}</h2>
              <p>{checkoutButton}</p>
-             </div>
+            
                 
                
 
