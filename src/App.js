@@ -13,6 +13,7 @@ import FormControl from "react-bootstrap/FormControl";
 import { Button } from "react-bootstrap";
 import { Redirect } from "react-router";
 import { withRouter } from "react-router";
+import Home from "./components/Home"
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Axios from "axios";
@@ -128,7 +129,7 @@ class App extends Component {
       return <Redirect to="/search" />;
     } else {
       return (
-        <div>
+        // <div>
           <Router>
             <div>
               <Navbar bg="light" expand="lg">
@@ -151,21 +152,7 @@ class App extends Component {
                       Members
                     </Nav.Link>
                   </Nav>
-                  {/* <form
-                    className="movieSearchForm"
-                    onSubmit={this.onSubmitHandler}
-                  >
-                    <input
-                      name="searchBar"
-                      id="searchBar"
-                      placeholder="Movie"
-                      type="text"
-                      className="search-bar"
-                      onChange={this.onInputChange}
-                      value={this.state.searchBar}
-                    />
-                    <button onSubmit={this.onSubmit}>Search</button>
-                  </form> */}
+             
                 </Navbar.Collapse>
               </Navbar>
               <section className="d-flex flex-row bd-highlight mb-3">
@@ -179,22 +166,7 @@ class App extends Component {
                 </div>
               </section>
               <div className="App">
-                {/* <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/search">Search</Link>
-              </li>
-              <li>
-                <Link to="/library">Library</Link>
-              </li>
-              <li>
-                <Link to="/customers">Customers</Link>
-              </li>
-            </ul>
-          </nav> */}
+             
 
                 <Switch>
                   <Route path="/search">
@@ -222,22 +194,14 @@ class App extends Component {
                       />
                     )}
                   />
-                  <Route
-                    path="/"
-                    render={props => (
-                      <MovieList
-                        {...props}
-                        onSelectMovieForCheckoutCallback={
-                          this.onSelectMovieForCheckout
-                        }
-                      />
-                    )}
-                  />
+                <Route path="/">
+                <Home /> 
+                  </Route>
                 </Switch>
               </div>
             </div>
           </Router>
-        </div>
+        // </div>
       );
     }
   }
