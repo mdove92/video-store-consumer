@@ -68,7 +68,9 @@ class MovieList extends Component {
     return (
       <div>
         <h2> Rental Library </h2>
+        <section className = "app-card-list">
         {moviesInfo}
+        </section>
       </div>
     );
   }

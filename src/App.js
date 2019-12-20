@@ -124,7 +124,7 @@ class App extends Component {
             <div>
               <Navbar bg="light" expand="lg">
                 <Navbar.Brand bsPrefix="App-title" href="#home">
-                 Amal and Mac Film Enthusiast's Club
+                 Amal and Mac's Film Enthusiasts Club
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -136,7 +136,7 @@ class App extends Component {
                       Search
                     </Nav.Link>
                     <Nav.Link as={Link} to="/library">
-                      Library
+                      Film Library
                     </Nav.Link>
                     <Nav.Link as={Link} to="/customers">
                       Members
